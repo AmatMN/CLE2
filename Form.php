@@ -18,7 +18,7 @@
             $RTable = $_POST['RTable'];
 
             $stmt = $conn->prepare("INSERT INTO Res(RName, Email, Tell, RDate, RTime, PAmount, RTable) 
-            VALUES(:RName, :Email, :Tell, :RDate, :RTime, :PAmount, :RTable)");
+                VALUES(:RName, :Email, :Tell, :RDate, :RTime, :PAmount, :RTable)");
 
             $stmt->bindParam(':RName', $RName);
             $stmt->bindParam(':Email', $Email);
