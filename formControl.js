@@ -19,14 +19,14 @@ function showTab(n) {
 }
 
 function nextPrev(n) {
-    if (n === 1 && !validate()) return false;
+    if (n === 1 && !validate()) return false; //stop if there is an empty input field
 
-    tabs[currentTab].style.display = "none";
+    tabs[currentTab].style.display = "none";//turn current tab off
     currentTab = currentTab + n;
 
-    if (currentTab >= tabs.length) {
-        let forms = document.getElementsByTagName("form");
-        forms[0].submit();
+    if (currentTab >= tabs.length) { //if last tab and hit next
+        let forms = document.getElementsByTagName("form"); //get the first form you find. should only be one.
+        forms[0].submit(); //submit said form
         return false;
     }
     showTab(currentTab);
@@ -34,12 +34,12 @@ function nextPrev(n) {
 
 function validate() {
     let valid = true;
-    let inputs = tabs[currentTab].getElementsByTagName("input");
+    let inputs = tabs[currentTab].getElementsByTagName("input"); //get every input in a tab
     for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].value === "") {
+        if (inputs[i].value === "") { //for every input field check empty
             inputs[i].className += " invalid";
-            valid = false;
+            valid = false; //if so return false
         }
     }
-    return valid;
+    return valid; //otherwise return true
 }
