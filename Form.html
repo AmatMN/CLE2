@@ -2,29 +2,48 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserveren van een tafel</title>
     <link rel="stylesheet" type="text/css" href="FormStyle.css">
 </head>
 <body>
     <div class="formBlock">
         <form method="post" action="Form.php">
-            <label>
-                <div class="tab">
-                    <input type="text" name="RDate" placeholder="Datum">
-                    <input type="text" name="RTime" placeholder="Tijd">
-                    <input type="text" name="PAmount" placeholder="Aantal Mensen">
-                </div><br>
-                <div class="tab">
+            <div class="tab">
+                <img class="Tijden" src="assets/openingstijden.png">
+                <label> Datum: <br>
+                    <input type="date" class="type1" name="RDate" placeholder=""><br>
+                </label>
+                <label> Tijd:<br>
+                    <input type="time" class="type1" name="RTime" placeholder=""><br>
+                </label>
+                <label> Met hoeveel mensen bent u:<br>
+                    <input type="number" class="type1" name="PAmount" placeholder=""><br>
+                </label>
+            </div>
+            <br>
+            <div class="tab">
+                <label>
                     <input type="text" name="RTable" placeholder="Tafel">
-                </div><br>
-                <div class="tab">
-                    <input type="text" name="RName" placeholder="Volle Naam">
-                    <input type="text" name="Tell" placeholder="Telefoon Nummer">
-                    <input type="text" name="Email" placeholder="Email">
-                </div><br>
-            </label>
-            <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
-            <button type="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
+                </label>
+            </div><br>
+            <div class="tab">
+                <label>
+                    <input type="text" class="type1" name="RName" placeholder="Volle Naam">
+                </label>
+                <label>
+                    <input type="text" class="type1" name="Tell" placeholder="Telefoon Nummer">
+                </label>
+                <label>
+                    <input type="text" class="type1" name="Email" placeholder="Email">
+                </label>
+            </div><br>
+            <div style="overflow:auto;">
+                <div style="float:right;">
+                    <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>
+                    <button type="button" id="nextBtn" onclick="nextPrev(1)">Volgende</button>
+                </div>
+            </div>
         </form>
     </div>
     <script src="formControl.js"></script>

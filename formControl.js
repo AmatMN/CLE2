@@ -5,13 +5,13 @@ showTab(currentTab);
 function showTab(n) {
     tabs[n].style.display = "block";
 
-    if (n === 0) {
+    if (n === 0) { // changed back button based on tab
         document.getElementById("prevBtn").style.display = "none";
     } else {
         document.getElementById("prevBtn").style.display = "inline";
     }
 
-    if (n === (tabs.length - 1)) {
+    if (n === (tabs.length - 1)) { //change next button text based on tab
         document.getElementById("nextBtn").innerHTML = "Plaats Reserering";
     } else {
         document.getElementById("nextBtn").innerHTML = "Volgende";
@@ -25,7 +25,7 @@ function nextPrev(n) {
     currentTab = currentTab + n;
 
     if (currentTab >= tabs.length) { //if last tab and hit next
-        let forms = document.getElementsByTagName("form"); //get the first form you find. should only be one.
+        let forms = document.getElementsByTagName("form"); //get the first form you find
         forms[0].submit(); //submit said form
         return false;
     }

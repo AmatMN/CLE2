@@ -9,6 +9,24 @@ body {
     padding: 0;
 }
 
+.Tijden {
+    display: inline;
+    position: absolute;
+    right: 20%;
+}
+
+.formBlock {
+    margin-top: 10%;
+    margin-left: 25%;
+    margin-right: 25%;
+    padding: 1.5%;
+    background: #ffffff;
+}
+
+.type1 {
+    width: auto;
+}
+
 .ResForm {
     background-color: #ffffff;
     margin: 100px auto;
@@ -34,6 +52,8 @@ input.invalid {
 
 .tab {
     display: none;
+    padding: 1%;
+    position: relative;
 }
 
 button {
@@ -51,4 +71,17 @@ button:hover {
 
 #prevBtn {
     background-color: #bbbbbb;
+}
+
+.rotated-half-circle {
+    /* Create the circle */
+    width: 40px;
+    height: 40px;
+    border: 10px solid black;
+    border-radius: 50%;
+    /* Halve the circle */
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+    /* Rotate the circle */
+    transform: rotate(135deg);
 }
