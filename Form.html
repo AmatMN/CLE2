@@ -14,30 +14,57 @@
                 <label> Datum: <br>
                     <input type="date" class="type1" name="RDate" placeholder=""><br>
                 </label>
-                <label> Tijd:<br>
+                <label> Tijd: <br>
                     <input type="time" class="type1" name="RTime" placeholder=""><br>
                 </label>
-                <label> Met hoeveel mensen bent u:<br>
+                <label> Met hoeveel mensen bent u: <br>
                     <input type="number" class="type1" name="PAmount" placeholder=""><br>
                 </label>
             </div>
             <br>
+
             <div class="tab">
-                <label>
-                    <input type="text" name="RTable" placeholder="Tafel">
-                </label>
+                Selecteer een tafel:
+                <div class="grid-container">
+                    <div class="grid-item1">
+                        <label class="container">
+                            <input type="radio" name="RTable" value="1">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="grid-item2">
+                        <label class="container">
+                            <input type="radio" name="RTable" value="2">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="grid-item3">
+                        <label class="container">
+                            <input type="radio" name="RTable" value="3">
+                            <span class="checkmark"></span>
+                        </label>
+                    </div>
+                    <div class="grid-item4">
+                        <label class="container">
+                            <input type="radio" name="RTable" value="4">
+                            <span class="checkmarkHalfC"></span>
+                        </label>
+                    </div>
+                </div>
             </div><br>
+
             <div class="tab">
-                <label>
-                    <input type="text" class="type1" name="RName" placeholder="Volle Naam">
+                <label> Naam: <br>
+                    <input type="text" class="type1" name="RName" placeholder=""><br>
                 </label>
-                <label>
-                    <input type="text" class="type1" name="Tell" placeholder="Telefoon Nummer">
+                <label> Telefoon Nummer: <br>
+                    <input type="text" class="type1" name="Tell" placeholder=""><br>
                 </label>
-                <label>
-                    <input type="text" class="type1" name="Email" placeholder="Email">
+                <label> Email: <br>
+                    <input type="text" class="type1" name="Email" placeholder=""><br>
                 </label>
-            </div><br>
+            </div>
+
             <div style="overflow:auto;">
                 <div style="float:right;">
                     <button type="button" id="prevBtn" onclick="nextPrev(-1)">Vorige</button>

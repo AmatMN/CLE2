@@ -41,7 +41,6 @@ h1 {
 
 input {
     padding: 10px;
-    width: 100%;
     font-size: 17px;
     border: 1px solid #aaaaaa;
 }
@@ -73,15 +72,82 @@ button:hover {
     background-color: #bbbbbb;
 }
 
-.rotated-half-circle {
-    /* Create the circle */
-    width: 40px;
-    height: 40px;
-    border: 10px solid black;
-    border-radius: 50%;
-    /* Halve the circle */
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-    /* Rotate the circle */
-    transform: rotate(135deg);
+.grid-container {
+    display: grid;
+    justify-content: space-evenly;
+    grid-template-columns: 10em 10em 10em 10em;
+    grid-gap: 10px;
+}
+
+.grid-container > div {
+    background-color: rgba(255, 255, 255, 0.8);
+    text-align: left;
+    padding-bottom: 75%;
+    font-size: 30px;
+}
+
+.grid-item1 {
+    grid-area: 2 / 1 / 2 / 1;
+}
+.grid-item2 {
+    grid-area: 1 / 2 / 1 / 2;
+}
+.grid-item3 {
+    grid-area: 1/ 3 / 1 / 3;
+}
+.grid-item4 {
+    grid-area: 3 / 2 / 3 / 2;
+}
+
+.container {
+    cursor: pointer;
+    font-size: 22px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmarkHalfC {
+    position: absolute;
+    border: 2px solid black;
+    height:45px;
+    width:180px;
+    border-radius: 0 0 90px 90px;
+}
+
+.checkmark {
+    position: absolute;
+    height: 100px;
+    width: 100px;
+    border: 2px solid black;
+    background-color: #eee;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmarkHalfC {
+    background-color: #ccc;
+}
+
+.container:hover input ~ .checkmark {
+    background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmarkHalfC {
+    background-color: #00ff00;
+
+}
+
+.container input:checked ~ .checkmark {
+    background-color: #00ff00;
+
 }

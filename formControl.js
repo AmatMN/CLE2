@@ -36,9 +36,18 @@ function validate() {
     let valid = true;
     let inputs = tabs[currentTab].getElementsByTagName("input"); //get every input in a tab
     for (let i = 0; i < inputs.length; i++) {
-        if (inputs[i].value === "") { //for every input field check empty
-            inputs[i].className += " invalid";
-            valid = false; //if so return false
+        if (!(inputs[i].type === "radio")) {
+            if (inputs[i].value === "") { //for every input field check empty
+                inputs[i].className += " invalid"; //turn input red
+                valid = false; //if so return false
+            }
+        } else {
+            if (!inputs[i].checked) { //check if a radio is checked
+                valid = false;
+            } else { //if one is found stop checking and return true
+                valid = true;
+                break;
+            }
         }
     }
     return valid; //otherwise return true
