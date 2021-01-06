@@ -4,21 +4,23 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reserveren van een tafel</title>
-    <link rel="stylesheet" type="text/css" href="FormStyle.css">
+    <link rel="stylesheet" type="text/css" href="css/FormStyle.css">
 </head>
 <body>
     <div class="formBlock">
-        <form method="post" action="Form.php">
+        <form method="post" action="php/Form.php">
             <div class="tab">
                 <img class="Tijden" src="assets/openingstijden.png">
                 <label> Datum: <br>
-                    <input type="date" class="type1" name="RDate" placeholder=""><br>
+                    <input type="date" class="type1" name="RDate" id="RDate" placeholder=""><br>
                 </label>
-                <label> Tijd: <br>
-                    <input type="time" class="type1" name="RTime" placeholder=""><br>
+                <label> Tijd : <br>
+                    (reserveringen kunnen tot een uur<br>
+                    voor sluitingstijd geplaatst worden)<br>
+                    <input type="time" class="type1" name="RTime" id="RTime" placeholder=""><br>
                 </label>
                 <label> Met hoeveel mensen bent u: <br>
-                    <input type="number" class="type1" name="PAmount" placeholder=""><br>
+                    <input type="number" class="type1" name="PAmount" id="PAmount" placeholder=""><br>
                 </label>
             </div>
             <br>
@@ -73,6 +75,6 @@
             </div>
         </form>
     </div>
-    <script src="formControl.js"></script>
+    <script src="js/formControl.js"></script>
 </body>
 </html>
