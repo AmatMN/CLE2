@@ -43,6 +43,8 @@
         $stmt->bindParam(':RTable', $RTable);
         $stmt->execute();//execute statement
 
+
+
     }
     catch(PDOException $e)//failed connection error handling
     {
