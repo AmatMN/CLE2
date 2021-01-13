@@ -60,6 +60,11 @@ function validate() {
             if (inputs[i].value === "") { //for every input field check empty
                 inputs[i].className += " invalid"; //turn input red
                 valid = false; //if so return false
+            } else if (inputs[i].id === "RTime") { //if time--
+                if (inputs[i].value < inputs[i].min || inputs[i].value > inputs[i].max) { // -- is outside open hours return false
+                    inputs[i].className += " invalid";
+                    valid = false;
+                }
             }
         } else {
             if (!inputs[i].checked) { //check if a radio is checked
@@ -91,21 +96,25 @@ function CheckAvailable() {
 
             for (let i = 0; i < inputs.length; i++) {
                 if (inputs[i].type === "radio") {
+                    if (amount <= 4 || inputs[i].value === "4") {
+                        for (let j = 0; j < data.length; j++) {
+                            let beginTime = convertTime(data[j]["RTime"], -1);
+                            let endTime = convertTime(data[j]["RTime"], +1);
 
-                    for (let j = 0; j < data.length; j++) {
-                        let beginTime = convertTime(data[j]["RTime"], -1);
-                        let endTime = convertTime(data[j]["RTime"], +1);
-
-                        // checking for reservations on the same day && checking for reservations within an hour before or after this one && checking if that reservation is for this table
-                        if (date === data[j]["RDate"] && (time >= beginTime) && (time <= endTime) && inputs[i].value === data[j]["RTable"]) {
-                            inputs[i].disabled = true;
-                            inputs[i].nextElementSibling.style = "background-color: red;"
-                            break;
+                            // checking for reservations on the same day && checking for reservations within an hour before or after this one && checking if that reservation is for this table
+                            if (date === data[j]["RDate"] && (time >= beginTime) && (time <= endTime) && inputs[i].value === data[j]["RTable"]) {
+                                inputs[i].disabled = true;
+                                inputs[i].nextElementSibling.style = "background-color: red;"
+                                break;
+                            } else {
+                                inputs[i].disabled = false;
+                                inputs[i].nextElementSibling.style = "";
+                            }
                         }
-                        else {
-                            inputs[i].disabled = false;
-                            inputs[i].nextElementSibling.style = "";
-                        }
+                    }
+                    else {
+                        inputs[i].disabled = true;
+                        inputs[i].nextElementSibling.style = "background-color: red;"
                     }
                 }
             }
