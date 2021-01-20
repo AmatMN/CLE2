@@ -1,57 +1,58 @@
 <?php
-    require_once "Settings.php"; //importing database settings
+session_start();
+require_once "Settings.php"; //importing database settings
 
-    try
-    {
-        $conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass); //making connection
-        $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-
-            //trim and sanitize input values if they aren't empty
-        if ($_POST['RName'] != "") {
-            $RName = sanitizePOSTData($_POST['RName'], "text");
-        }
-        if ($_POST['Tell'] != "") {
-            $Tell = sanitizePOSTData($_POST['Tell'], "text");
-        }
-        if ($_POST['Email'] != "") {
-            $Email = sanitizePOSTData($_POST['Email'], "email");
-        }
-        if ($_POST['RDate'] != "") {
-            $RDate = sanitizePOSTData($_POST['RDate'], "number");
-        }
-        if ($_POST['RTime'] != "") {
-            $RTime = sanitizePOSTData($_POST['RTime'], "time");
-        }
-        if ($_POST['PAmount'] != "") {
-            $PAmount = sanitizePOSTData($_POST['PAmount'], "number");
-        }
-        if ($_POST['RTable'] != "") {
-            $RTable = sanitizePOSTData($_POST['RTable'], "number");
-        }
+try {
+    $conn = new PDO("mysql:host=$db_host;dbname=$db_name", $db_user, $db_pass); //making connection
+    $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 
-        $stmt = $conn->prepare("INSERT INTO Res(RName, Email, Tell, RDate, RTime, PAmount, RTable) 
+    //trim and sanitize input values if they aren't empty
+    if ($_POST['RName'] != "") {
+        $RName = sanitizePOSTData($_POST['RName'], "text");
+    }
+    if ($_POST['Tell'] != "") {
+        $Tell = sanitizePOSTData($_POST['Tell'], "text");
+    }
+    if ($_POST['Email'] != "") {
+        $Email = sanitizePOSTData($_POST['Email'], "email");
+    }
+    if ($_POST['RDate'] != "") {
+        $RDate = sanitizePOSTData($_POST['RDate'], "number");
+    }
+    if ($_POST['RTime'] != "") {
+        $RTime = sanitizePOSTData($_POST['RTime'], "time");
+    }
+    if ($_POST['PAmount'] != "") {
+        $PAmount = sanitizePOSTData($_POST['PAmount'], "number");
+    }
+    if ($_POST['RTable'] != "") {
+        $RTable = sanitizePOSTData($_POST['RTable'], "number");
+    }
+    $_SESSION = $_POST;
+
+    $stmt = $conn->prepare("INSERT INTO Res(RName, Email, Tell, RDate, RTime, PAmount, RTable) 
             VALUES(:RName, :Email, :Tell, :RDate, :RTime, :PAmount, :RTable)"); // preparing the statement
 
-        //setting the parameters of the prepared statement
-        $stmt->bindParam(':RName', $RName);
-        $stmt->bindParam(':Email', $Email);
-        $stmt->bindParam(':Tell', $Tell);
-        $stmt->bindParam(':RDate', $RDate);
-        $stmt->bindParam(':RTime', $RTime);
-        $stmt->bindParam(':PAmount', $PAmount);
-        $stmt->bindParam(':RTable', $RTable);
-        $stmt->execute();//execute statement
+    //setting the parameters of the prepared statement
+    $stmt->bindParam(':RName', $RName);
+    $stmt->bindParam(':Email', $Email);
+    $stmt->bindParam(':Tell', $Tell);
+    $stmt->bindParam(':RDate', $RDate);
+    $stmt->bindParam(':RTime', $RTime);
+    $stmt->bindParam(':PAmount', $PAmount);
+    $stmt->bindParam(':RTable', $RTable);
+    $stmt->execute();//execute statement
+
+    header('location: http://undaground.nl/CLE2/confirmation.php');
+} catch (PDOException $e)//failed connection error handling
+{
+    echo "Connection failed: " . $e->getMessage();
+}
 
 
-
-    }
-    catch(PDOException $e)//failed connection error handling
-    {
-        echo "Connection failed: " . $e->getMessage();
-    }
-
-function sanitizePOSTData($value, $type) {
+function sanitizePOSTData($value, $type)
+{
     $value = trim($value);
     if ($value != "") {
         if ($type === "text") {
@@ -65,3 +66,4 @@ function sanitizePOSTData($value, $type) {
         }
     }
 }
+

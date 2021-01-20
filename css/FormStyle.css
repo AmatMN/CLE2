@@ -7,6 +7,35 @@ body {
     background-color: #d0d0d0;
     margin: 0;
     padding: 0;
+    overflow-x: hidden;
+}
+
+#navbar {
+    overflow: hidden;
+    background-color: #f2f2f2;
+}
+
+.logo {
+    float: left;
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    z-index: 9999;
+}
+
+.navContent a {
+    float: right;
+    display: block;
+    color: #0d0d0d;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+    font-size: 17px;
+}
+
+
+.navContent a:hover {
+    background-color: #606060;
 }
 
 .Tijden {
@@ -16,9 +45,7 @@ body {
 }
 
 .formBlock {
-    margin-top: 10%;
-    margin-left: 25%;
-    margin-right: 25%;
+    margin: 5% 25%;
     padding: 1.5%;
     background: #ffffff;
 }
@@ -150,4 +177,13 @@ button:hover {
 .container input:checked ~ .checkmark {
     background-color: #00ff00;
 
+}
+
+.wrapper {
+    width: 100vw;
+    height: auto;
+    float: left;
+    display: block;
+    box-sizing: border-box;
+    position: relative;
 }

@@ -15,8 +15,17 @@ session_start();
     <title>Reserveringen</title>
 </head>
 <body>
-    <p id="check">Reserveringen</p>
-    <div id="ress"></div>
+    <div id="navbar">
+        <div class="navContent">
+            <a href="https://www.werkenbijverhage.nl/">vacatures</a>
+            <a href="https://e-food.nl/verhage">bestellen bij verhage</a>
+            <a href="https://verhage.nu/">verhage.nu</a>
+        </div>
+    </div>
+
+    <p id="check">Reserveringen:</p>
+    <div id="ress">
+    </div>
     <script src="../js/AdminControl.js"></script>
 </body>
 </html>
