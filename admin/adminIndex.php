@@ -20,10 +20,11 @@ session_start();
             <a href="https://www.werkenbijverhage.nl/">vacatures</a>
             <a href="https://e-food.nl/verhage">bestellen bij verhage</a>
             <a href="https://verhage.nu/">verhage.nu</a>
+            <a href="../Form.html">Reservatie pagina</a>
         </div>
     </div>
 
-    <p id="check">Reserveringen:</p>
+    <button id="switch">Archief</button>
     <div id="ress">
     </div>
     <script src="../js/AdminControl.js"></script>

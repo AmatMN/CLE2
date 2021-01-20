@@ -83,12 +83,12 @@ function CheckAvailable() {
     let time = document.getElementById("RTime").value;
     let amount = document.getElementById("PAmount").value;
 
-    let ajax = new XMLHttpRequest();
-    ajax.open("POST","php/GetReservations.php",true);
-    ajax.send();
+    let xhr = new XMLHttpRequest();
+    xhr.open("POST","php/GetReservations.php",true);
+    xhr.send();
 
     let data = {};
-    ajax.onreadystatechange = function() {
+    xhr.onreadystatechange = function() {
         if (this.readyState === 4 && this.status === 200) {
             data = JSON.parse(this.responseText);
 
